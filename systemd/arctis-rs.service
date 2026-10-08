@@ -1,0 +1,28 @@
+[Unit]
+Description=Arctis headset status daemon (TCP, plain text)
+Documentation=file:///usr/share/doc/arctis-rs/README.md
+
+[Service]
+ExecStart=/usr/local/bin/arctis-rs --listen 127.0.0.1:7878
+Restart=on-failure
+RestartSec=2
+
+# Unprivileged: the udev rule gives group "plugdev" access to the hidraw node.
+DynamicUser=yes
+SupplementaryGroups=plugdev
+
+# Hardening
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+RestrictAddressFamilies=AF_INET AF_INET6
+RestrictNamespaces=yes
+MemoryDenyWriteExecute=yes
+DevicePolicy=closed
+DeviceAllow=char-hidraw rw
+
+[Install]
+WantedBy=multi-user.target

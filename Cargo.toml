@@ -1,0 +1,12 @@
+[package]
+name = "arctis-rs"
+version = "0.1.0"
+edition = "2021"
+description = "Small daemon exposing SteelSeries Arctis headset status (power, battery) over plain-text TCP"
+license = "GPL-3.0-or-later"
+
+[dependencies]
+
+[profile.release]
+lto = true
+strip = true
