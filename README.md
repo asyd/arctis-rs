@@ -9,6 +9,11 @@ and Arctis 9 (`12c2`). The protocol is taken from
 [HeadsetControl](https://github.com/Sapd/HeadsetControl) and was verified on an
 Arctis 7 2019. **Arctis 9 support has not been tested on hardware** (see below).
 
+## Desktop widget
+
+A native KDE Plasma 6 widget showing power state and battery level (coloured
+by level) is available in [arctis-tray](https://github.com/asyd/arctis-tray).
+
 ## Usage
 
 ```sh
@@ -122,3 +127,7 @@ the address, run `systemctl edit arctis-rs` and override `ExecStart=`.
 
 The daemon is read-only (no write command is ever sent to the headset) and
 listens on loopback only by default.
+
+## License
+
+GPL-3.0-or-later, see [LICENSE](LICENSE).
